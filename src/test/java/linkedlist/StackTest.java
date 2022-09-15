@@ -19,7 +19,7 @@ public class StackTest {
     }
 
     @Test
-    public void push_shouldAddElementToStack() {
+    public void push_whenStackIsEmpty_shouldAddElementToStack() {
         // Given
         assertTrue(stack.isEmpty());
         assertEquals(0, stack.size());
@@ -29,6 +29,20 @@ public class StackTest {
 
         // Then
         assertEquals(1, stack.size());
+    }
+
+    @Test
+    public void push_whenStackIsNotEmpty_shouldAddElementToStack() {
+        // Given
+        stack.push(1);
+        assertFalse(stack.isEmpty());
+        assertEquals(1, stack.size());
+
+        // When
+        stack.push(1);
+
+        // Then
+        assertEquals(2, stack.size());
     }
 
     @Test
