@@ -1,6 +1,6 @@
 # Data Structures
 
-Examples of how data structures implemented in Java.
+Examples of data structures implemented in Java.
 
 ### Project Prerequisites
 
