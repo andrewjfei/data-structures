@@ -1,14 +1,13 @@
 package linkedlist;
 
+import dev.andrewjfei.exceptions.EmptyListException;
 import dev.andrewjfei.linkedlist.Stack;
-import java.util.EmptyStackException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
-import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -41,7 +40,7 @@ public class StackTest {
         assertEquals(1, stack.size());
 
         // When
-        stack.push(1);
+        stack.push(10);
 
         // Then
         assertEquals(2, stack.size());
@@ -55,7 +54,7 @@ public class StackTest {
 
         // When
         // Then
-        assertThrows(EmptyStackException.class, () -> stack.pop());
+        assertThrows(EmptyListException.class, () -> stack.pop());
     }
 
     @Test
@@ -83,7 +82,7 @@ public class StackTest {
 
         // When
         // Then
-        assertThrows(EmptyStackException.class, () -> stack.peek());
+        assertThrows(EmptyListException.class, () -> stack.peek());
     }
 
     @Test

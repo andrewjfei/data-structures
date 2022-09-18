@@ -17,7 +17,7 @@ Examples of data structures implemented in Java.
 - Dynamic Array
 - Singly Linked List
 - Doubly Linked List
-- Stack
-- Queue
+- Stack :white_check_mark:
+- Queue :white_check_mark:
 - Heap
 - Binary Tree
