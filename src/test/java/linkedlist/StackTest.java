@@ -1,6 +1,7 @@
 package linkedlist;
 
 import dev.andrewjfei.linkedlist.Stack;
+import java.util.EmptyStackException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -8,6 +9,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class StackTest {
@@ -46,25 +48,24 @@ public class StackTest {
     }
 
     @Test
-    public void pop_whenStackIsEmpty_shouldReturnNull() {
+    public void pop_whenStackIsEmpty_shouldThrowException() {
         // Given
         assertTrue(stack.isEmpty());
         assertEquals(0, stack.size());
 
         // When
-        Integer popped = stack.pop();
-
         // Then
-        assertNull(popped);
+        assertThrows(EmptyStackException.class, () -> stack.pop());
     }
 
     @Test
     public void pop_whenStackIsNotEmpty_shouldReturnLastElementAdded_andRemoveLastElement() {
-        Integer element = 1;
+        Integer element = 10;
 
         // Given
+        stack.push(1);
         stack.push(element);
-        assertEquals(1, stack.size());
+        assertEquals(2, stack.size());
 
         // When
         Integer popped = stack.pop();
@@ -75,16 +76,14 @@ public class StackTest {
     }
 
     @Test
-    public void peek_whenStackIsEmpty_shouldReturnNull() {
+    public void peek_whenStackIsEmpty_shouldThrowException() {
         // Given
         assertTrue(stack.isEmpty());
         assertEquals(0, stack.size());
 
         // When
-        Integer peeked = stack.peek();
-
         // Then
-        assertNull(peeked);
+        assertThrows(EmptyStackException.class, () -> stack.peek());
     }
 
     @Test

@@ -1,5 +1,7 @@
 package dev.andrewjfei.linkedlist;
 
+import java.util.EmptyStackException;
+
 /**
  * A {@code Stack} is a list data structure which follows the LIFO (Last In First Out) principle. This means that
  * insertions and deletions are only allowed at the end of the list.
@@ -48,10 +50,7 @@ public class Stack<T> {
      * @return the element at the top of the stack.
      */
     public T pop() {
-        if (isEmpty()) {
-            System.out.println("Stack is empty.");
-            return null;
-        }
+        if (isEmpty()) throw new EmptyStackException();
 
         Node<T> deletedNode = tail;
 
@@ -70,9 +69,7 @@ public class Stack<T> {
      * @return the element at the top of the stack.
      */
     public T peek() {
-        if (isEmpty()) {
-            return null;
-        }
+        if (isEmpty()) throw new EmptyStackException();
 
         return tail.getData();
     }
