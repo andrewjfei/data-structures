@@ -62,7 +62,7 @@ public class Stack<T> {
     }
 
     /**
-     * The <b>pop</b> method returns the element at the top of the stack.
+     * The <b>peek</b> method returns the element at the top of the stack.
      *
      * <p> This operation takes {@code O(1)} time as there is already a pointer pointing to the node at the top of the
      * stack.
@@ -78,15 +78,25 @@ public class Stack<T> {
     }
 
     /**
-     * The <b>isEmpty</b> method checks if the stack currently contains elements or not.
+     * The <b>contains</b> method checks an element exists in the stack.
      *
-     * <p> This operation takes {@code O(1)} time as there is a variable tracking the size of the stack. Also, if the
-     * tail pointer is pointing to {@code null} then it is another indicator that the stack is empty.
+     * <p> This operation takes {@code O(n)} time as the element could be the first element of the stack, hence
+     * all elements above it would need to be removed in order to know whether the element is in the stack or not.
      *
-     * @return {@code true} if the stack is empty, otherwise {@code false}.
+     * @return {@code true} if the element is in empty, otherwise {@code false}.
      */
-    public boolean isEmpty() {
-        return tail == null ? true : false;
+    public boolean contains(T t) {
+        Node<T> copy = tail;
+
+        while (copy != null) {
+            if (copy.getData().equals(t)) {
+                return true;
+            }
+
+            copy = copy.getPrev();
+        }
+
+        return false;
     }
 
     /**
@@ -99,6 +109,18 @@ public class Stack<T> {
      */
     public int size() {
         return size;
+    }
+
+    /**
+     * The <b>isEmpty</b> method checks if the stack currently contains elements or not.
+     *
+     * <p> This operation takes {@code O(1)} time as there is a variable tracking the size of the stack. Also, if the
+     * tail pointer is pointing to {@code null} then it is another indicator that the stack is empty.
+     *
+     * @return {@code true} if the stack is empty, otherwise {@code false}.
+     */
+    public boolean isEmpty() {
+        return tail == null ? true : false;
     }
 
     /**

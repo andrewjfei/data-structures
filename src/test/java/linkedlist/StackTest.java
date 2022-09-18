@@ -103,24 +103,29 @@ public class StackTest {
     }
 
     @Test
-    public void isEmpty_whenStackIsEmpty_shouldReturnTrue() {
-        // Given
-        // When
-        assertEquals(0, stack.size());
+    public void contains_whenElementIsNotInStack_shouldReturnFalse() {
+        Integer element = 1;
 
+        // Given
+        stack.push(10);
+        assertEquals(1, stack.size());
+
+        // When
         // Then
-        assertTrue(stack.isEmpty());
+        assertFalse(stack.contains(element));
     }
 
     @Test
-    public void isEmpty_whenStackIsNotEmpty_shouldReturnFalse() {
+    public void contains_whenElementIsInStack_shouldReturnTrue() {
+        Integer element = 1;
+
         // Given
-        // When
-        stack.push(1);
+        stack.push(element);
         assertEquals(1, stack.size());
 
+        // When
         // Then
-        assertFalse(stack.isEmpty());
+        assertTrue(stack.contains(element));
     }
 
     @Test
@@ -142,5 +147,26 @@ public class StackTest {
 
         // Then
         assertEquals(1, stack.size());
+    }
+
+    @Test
+    public void isEmpty_whenStackIsEmpty_shouldReturnTrue() {
+        // Given
+        // When
+        assertEquals(0, stack.size());
+
+        // Then
+        assertTrue(stack.isEmpty());
+    }
+
+    @Test
+    public void isEmpty_whenStackIsNotEmpty_shouldReturnFalse() {
+        // Given
+        // When
+        stack.push(1);
+        assertEquals(1, stack.size());
+
+        // Then
+        assertFalse(stack.isEmpty());
     }
 }
