@@ -27,7 +27,7 @@ public class Stack<T> {
     }
 
     /**
-     * The <b>push</b> method adds an element to the top of the stack.
+     * The {@code push} method adds an element to the top of the stack.
      *
      * <p> This operation takes {@code O(1)} time as there is already a pointer pointing to the node at the top of the
      * stack.
@@ -46,7 +46,7 @@ public class Stack<T> {
     }
 
     /**
-     * The <b>pop</b> method removes the element at the top of the stack.
+     * The {@code pop} method removes the element at the top of the stack.
      *
      * <p> This operation takes {@code O(1)} time as there is already a pointer pointing to the node at the top of the
      * stack. Each node also has a pointer pointing to the previous node.
@@ -65,7 +65,7 @@ public class Stack<T> {
     }
 
     /**
-     * The <b>peek</b> method returns the element at the top of the stack.
+     * The {@code peek} method returns the element at the top of the stack.
      *
      * <p> This operation takes {@code O(1)} time as there is already a pointer pointing to the node at the top of the
      * stack.
@@ -73,13 +73,13 @@ public class Stack<T> {
      * @return the element at the top of the stack.
      */
     public T peek() {
-        if (isEmpty()) throw new EmptyListException();
+        if (isEmpty()) return null;
 
         return tail.getData();
     }
 
     /**
-     * The <b>contains</b> method checks if an element exists in the stack.
+     * The {@code contains} method checks if an element exists in the stack.
      *
      * <p> This operation takes {@code O(n)} time as the element could be the first element of the stack, hence
      * all elements above it would need to be removed in order to know whether the element is in the stack or not.
@@ -101,7 +101,7 @@ public class Stack<T> {
     }
 
     /**
-     * The <b>size</b> method returns the current size of the stack.
+     * The {@code size} method returns the current size of the stack.
      *
      * <p> This operation takes {@code O(1)} time as there is a variable tracking the size of the stack as it grows and
      * shrinks.
@@ -113,7 +113,7 @@ public class Stack<T> {
     }
 
     /**
-     * The <b>isEmpty</b> method checks if the stack currently contains any elements or not.
+     * The {@code isEmpty}> method checks if the stack currently contains any elements or not.
      *
      * <p> This operation takes {@code O(1)} time as there is a variable tracking the size of the stack. Also, if the
      * tail pointer is pointing to {@code null} then it is another indicator that the stack is empty.

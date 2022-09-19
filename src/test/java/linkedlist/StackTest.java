@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -75,14 +76,16 @@ public class StackTest {
     }
 
     @Test
-    public void peek_whenStackIsEmpty_shouldThrowException() {
+    public void peek_whenStackIsEmpty_shouldReturnNull() {
         // Given
         assertTrue(stack.isEmpty());
         assertEquals(0, stack.size());
 
         // When
+        Integer peeked = stack.peek();
+
         // Then
-        assertThrows(EmptyListException.class, () -> stack.peek());
+        assertNull(peeked);
     }
 
     @Test

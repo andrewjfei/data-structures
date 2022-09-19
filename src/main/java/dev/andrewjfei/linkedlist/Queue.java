@@ -27,7 +27,7 @@ public class Queue<T> {
     }
 
     /**
-     * The <b>enqueue</b> method adds an element to the back of the queue.
+     * The {@code enqueue} method adds an element to the back of the queue.
      *
      * <p> This operation takes {@code O(1)} time as there is already a pointer pointing to the node at the back of the
      * queue.
@@ -48,7 +48,7 @@ public class Queue<T> {
     }
 
     /**
-     * The <b>dequeue</b> method removes the element at the start of the queue.
+     * The {@code dequeue} method removes the element at the start of the queue.
      *
      * <p> This operation takes {@code O(1)} time as there is already a pointer pointing to the node at the start of the
      * queue. Each node also has a pointer pointing to the next node.
@@ -67,7 +67,7 @@ public class Queue<T> {
     }
 
     /**
-     * The <b>peek</b> method returns the element at the start of the queue.
+     * The {@code peek} method returns the element at the start of the queue.
      *
      * <p> This operation takes {@code O(1)} time as there is already a pointer pointing to the node at the start of the
      * queue.
@@ -75,13 +75,13 @@ public class Queue<T> {
      * @return the element at the top of the stack.
      */
     public T peek() {
-        if (isEmpty()) throw new EmptyListException();
+        if (isEmpty()) return null;
 
         return head.getData();
     }
 
     /**
-     * The <b>contains</b> method checks if an element exists in the queue.
+     * The {@code contains} method checks if an element exists in the queue.
      *
      * <p> This operation takes {@code O(n)} time as the element could be the last element of the queue, hence
      * the entire queue would need to be traversed in order to know whether the element is in the queue or not.
@@ -103,7 +103,7 @@ public class Queue<T> {
     }
 
     /**
-     * The <b>size</b> method returns the current size of the queue.
+     * The {@code size} method returns the current size of the queue.
      *
      * <p> This operation takes {@code O(1)} time as there is a variable tracking the size of the queue as it grows and
      * shrinks.
@@ -115,7 +115,7 @@ public class Queue<T> {
     }
 
     /**
-     * The <b>isEmpty</b> method checks if the queue currently contains any elements or not.
+     * The {@code isEmpty} method checks if the queue currently contains any elements or not.
      *
      * <p> This operation takes {@code O(1)} time as there is a variable tracking the size of the queue. Also, if the
      * tail pointer is pointing to {@code null} then it is another indicator that the queue is empty.

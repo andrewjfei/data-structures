@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -76,14 +77,16 @@ public class QueueTest {
     }
 
     @Test
-    public void peek_whenQueueIsEmpty_shouldThrowException() {
+    public void peek_whenQueueIsEmpty_shouldReturnNull() {
         // Given
         assertTrue(queue.isEmpty());
         assertEquals(0, queue.size());
 
         // When
+        Integer peeked = queue.peek();
+
         // Then
-        assertThrows(EmptyListException.class, () -> queue.peek());
+        assertNull(peeked);
     }
 
     @Test
