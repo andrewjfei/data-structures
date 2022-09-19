@@ -184,23 +184,52 @@ public class BinaryHeap<T extends Comparable<T>> {
             rightChildNode = heap.get(rightChildIndex);
         }
 
-        // 1 = Greater Than, 0 = Equal, -1 = Less Than
-        if (leftChildNode != null && parentNode.compareTo(leftChildNode) < 0) {
-
-            // Swap nodes in tree
-            heap.set(leftChildIndex, parentNode);
-            heap.set(index, leftChildNode);
-
-            // Recursively call sink
-            sink(leftChildIndex);
-        } else if (rightChildNode != null && parentNode.compareTo(rightChildNode) < 0) {
-
-            // Swap nodes in tree
-            heap.set(rightChildIndex, parentNode);
-            heap.set(index, rightChildNode);
-
-            // Recursively call sink
-            sink(rightChildIndex);
+        // If no children, return
+        if (leftChildNode == null && rightChildNode == null) {
+            return;
         }
+
+        int sinkChildIndex = -1;
+        T childNode = null;
+
+        if (
+            leftChildNode != null &&
+            rightChildNode != null &&
+            parentNode.compareTo(leftChildNode) < 0 &&
+            parentNode.compareTo(rightChildNode) < 0
+        ) {
+            if (leftChildNode.compareTo(rightChildNode) > 0) {
+                childNode = leftChildNode;
+                sinkChildIndex = leftChildIndex;
+            } else {
+                childNode = rightChildNode;
+                sinkChildIndex = rightChildIndex;
+            }
+        } else if (leftChildNode != null && parentNode.compareTo(leftChildNode) < 0) {
+            childNode = leftChildNode;
+            sinkChildIndex = leftChildIndex;
+        } else if (rightChildNode != null && parentNode.compareTo(rightChildNode) < 0) {
+            childNode = rightChildNode;
+            sinkChildIndex = rightChildIndex;
+        }
+
+        // Sink node
+        if (sinkChildIndex > -1) {
+            // Swap nodes in tree
+            heap.set(sinkChildIndex, parentNode);
+            heap.set(index, childNode);
+
+            // Recursively call sink
+            sink(sinkChildIndex);
+        }
+    }
+
+    @Override
+    public String toString() {
+        return "BinaryHeap{" +
+                "heap=" + heap +
+                ", size=" + size +
+                ", maxSize=" + maxSize +
+                '}';
     }
 }

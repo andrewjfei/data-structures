@@ -134,7 +134,7 @@ public class Queue<T> {
      *
      * @param <T> the data type of the node.
      */
-    public class Node<T> {
+    private class Node<T> {
         private T data;
         private Node next;
 
